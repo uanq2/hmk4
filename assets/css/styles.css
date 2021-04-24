@@ -1,0 +1,36 @@
+body {
+  background-color: lightblue;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+}
+
+.description {
+  margin: auto;
+}
+
+.quest {
+  width: 800px;
+  max-width: 80%;
+  background-color: white;
+  margin: auto;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 0 5px 2px;
+}
+
+.answers {
+  display: grid;
+  gap: 10px;
+  margin: 20px 40px;
+}
+
+.start-btn {
+  border-radius: 5px;
+  background-color: darkgray;
+  padding: 5px 10px;
+  color: rgb(31, 31, 31);
+}
