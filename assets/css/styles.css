@@ -22,6 +22,11 @@ h1 {
   box-shadow: 0 0 5px 2px;
 }
 
+.timer {
+  display: inline-flex;
+  justify-content: right;
+}
+
 .answers {
   display: grid;
   gap: 10px;
@@ -33,4 +38,6 @@ h1 {
   background-color: darkgray;
   padding: 5px 10px;
   color: rgb(31, 31, 31);
+  margin: auto;
+  display: block;
 }

@@ -4,18 +4,41 @@ let saveScore = document.getElementById("save-score");
 let choiceButton = document.getElementById("choices");
 let questionTitle = document.getElementById("question-title");
 let choicesDiv = document.getElementById("choices");
-var timer;
-var timerCount;
+let description = document.getElementById("description")
+let timer;
+let timerCount;
 let questionIndex = 0;
-
+let countdown = 90;
 
 // functions //////////////////////////////////
-// start quiz - init
-function startQuiz() {
-    // start timer
-    // find dom element to show the question
-    getQuestion();
+
+function init() {
+    description.setAttribute("style", "display: block");
 }
+
+function startQuiz() {
+    description.setAttribute("style", "display: none");
+    getQuestion();
+    startTimer()
+    if (startBtn.style.display === 'none') {
+        startBtn.style.display = 'block';
+    } else {
+        startBtn.style.display = 'none'
+    }
+}
+
+function startTimer() {
+    var interval = setInterval(function () {
+        countdown--;
+        document.getElementById("timer-count").textContent = countdown;
+
+        if (countdown <= 0 || questionIndex >= questions.length) {
+            clearInterval(interval);
+            endGame();
+        }
+    }, 1000)
+}
+
 
 // get the next question
 function getQuestion() {
@@ -53,27 +76,27 @@ function answerCheck() {
         } else {
             endGame();
         }
-    } else {
     }
-
     // check the user selection against correct answer
     // incorrect remove seconds
     // set score
     // get next question
     //getQuestion();
     // if questions.length
-    endGame();
+    //endGame();
 }
 
 // end game
 function endGame() {
-    // set their score
+    //alert(Game is Over!);
+
     // show end screen
     // clear out timer
 }
 
 // save high score
 function saveHighScore() {
+
     // prompt for initials
     // save score to localstorage
 }
@@ -86,3 +109,5 @@ startBtn.addEventListener("click", startQuiz);
 
 // save high score
 //saveScore.addEventListener("click", saveHighScore);
+
+init();
