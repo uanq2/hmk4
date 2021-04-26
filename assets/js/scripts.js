@@ -5,15 +5,15 @@ let choiceButton = document.getElementById("choices");
 let questionTitle = document.getElementById("question-title");
 let choicesDiv = document.getElementById("choices");
 let description = document.getElementById("description")
-let timer;
-let timerCount;
+let form = document.getElementById("form");
 let questionIndex = 0;
-let countdown = 90;
+let countdown = 100;
 
 // functions //////////////////////////////////
 
 function init() {
     description.setAttribute("style", "display: block");
+    form.setAttribute("style", "display: none");
 }
 
 function startQuiz() {
@@ -51,11 +51,11 @@ function getQuestion() {
         let choiceButton = document.createElement("button");
         choiceButton.textContent = choice;
         choiceButton.setAttribute("value", choice);
+        choiceButton.setAttribute('class', 'option');
         // add event listener for the each button created
         choiceButton.onclick = answerCheck;
         choicesDiv.appendChild(choiceButton);
     });
-    answerCheck();
 }
 
 // check the user selection against correct answer
@@ -73,8 +73,6 @@ function answerCheck() {
         questionIndex++;
         if (questionIndex < questions.length) {
             getQuestion();
-        } else {
-            endGame();
         }
     }
     // check the user selection against correct answer
@@ -88,7 +86,9 @@ function answerCheck() {
 
 // end game
 function endGame() {
-    //alert(Game is Over!);
+    alert('Game is Over!');
+    form.setAttribute("style", "display: block");
+
 
     // show end screen
     // clear out timer

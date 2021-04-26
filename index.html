@@ -14,9 +14,11 @@
     <div>
         <a href="./highscores.html" class="high-scores">Show High Scores</a>
     </div>
+
     <div class="timer">Time: <span id="timer-count">90</span></div>
     <h1>World Cup Challenge</h1>
-    <br><br>
+    <br>
+
     <div id="question" class="quest">
         <span id="question-title" class="title"></span><br>
         <div id="choices" class="answers"></div>
@@ -27,6 +29,14 @@
     </div>
     <br><br>
     <button id="start" class="start-btn">Start Challenge</button>
+    </div>
+
+    <div id="form">
+        <form action="save-score" method="post">
+            <label for="initials">Initials: </label>
+            <input type="text" id="initials" name="user-initials">
+            <button type="submit" class="saveInitials" id="save-score">Save score</button>
+        </form>
     </div>
 
     <script src="./assets/js/questions.js"></script>
