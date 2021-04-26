@@ -87,11 +87,7 @@ function answerCheck() {
 // end game
 function endGame() {
     alert('Game is Over!');
-    form.setAttribute("style", "display: block");
-
-
-    // show end screen
-    // clear out timer
+    form.setAttribute("style", "display: block", "margin: auto");
 }
 
 // save high score
@@ -101,8 +97,9 @@ function saveHighScore() {
     // save score to localstorage
 }
 
-// event listeners //////////////////////////////////
-// start button click
+function HighScoresLink() {
+    window.location.href = "./highscores.html";
+}
 
 choiceButton.addEventListener("click", answerCheck);
 startBtn.addEventListener("click", startQuiz);
