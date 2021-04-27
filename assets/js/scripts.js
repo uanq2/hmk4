@@ -6,11 +6,11 @@ let questionTitle = document.getElementById("question-title");
 let choicesDiv = document.getElementById("choices");
 let description = document.getElementById("description")
 let form = document.getElementById("form");
+let highScoresArr = JSON.parse(localStorage.getItem('highScoresArr')) || [];
 let questionIndex = 0;
 let countdown = 100;
 
 // functions //////////////////////////////////
-
 function init() {
     description.setAttribute("style", "display: block");
     form.setAttribute("style", "display: none");
@@ -31,7 +31,6 @@ function startTimer() {
     var interval = setInterval(function () {
         countdown--;
         document.getElementById("timer-count").textContent = countdown;
-
         if (countdown <= 0 || questionIndex >= questions.length) {
             clearInterval(interval);
             endGame();
@@ -39,72 +38,58 @@ function startTimer() {
     }, 1000)
 }
 
-
-// get the next question
 function getQuestion() {
-    // get the current question
     let currentQuestion = questions[questionIndex];
-    // show the question
     questionTitle.textContent = currentQuestion.title;
-    // loop show the choices (buttons)
+    choicesDiv.innerHTML = "";
     currentQuestion.choices.forEach(choice => {
         let choiceButton = document.createElement("button");
         choiceButton.textContent = choice;
         choiceButton.setAttribute("value", choice);
-        choiceButton.setAttribute('class', 'option');
-        // add event listener for the each button created
         choiceButton.onclick = answerCheck;
         choicesDiv.appendChild(choiceButton);
     });
 }
 
-// check the user selection against correct answer
-// incorrect remove seconds
-// set score
-// get next question
-// showQuestion();
-// if questions.length
-
-
-// check user selection
 function answerCheck() {
     if (this.value === questions[questionIndex].correctAnswer) {
         alert('correct');
+    } else {
+        countdown -= 10;
+        alert('wrong!');
         questionIndex++;
         if (questionIndex < questions.length) {
             getQuestion();
         }
     }
-    // check the user selection against correct answer
-    // incorrect remove seconds
-    // set score
-    // get next question
-    //getQuestion();
-    // if questions.length
-    //endGame();
 }
 
 // end game
 function endGame() {
     alert('Game is Over!');
-    form.setAttribute("style", "display: block", "margin: auto");
+    form.setAttribute("style", "display: block",);
 }
 
 // save high score
-function saveHighScore() {
-
-    // prompt for initials
-    // save score to localstorage
+function saveHighScore(event) {
+    event.preventDefault();
+    let initialInput = document.getElementById('initials').value;
+    let highScoreObj = {
+        name: initialInput,
+        score: countdown,
+    };
+    highScoresArr.push(highScoreObj);
+    highScoresArr.sort((a, b) => b.highScoreObj - a.highScoreObj);
+    localStorage.setItem('highScoresArr', JSON.stringify(highScoresArr));
+    highScoresLink();
 }
 
-function HighScoresLink() {
+function highScoresLink() {
     window.location.href = "./highscores.html";
 }
 
 choiceButton.addEventListener("click", answerCheck);
 startBtn.addEventListener("click", startQuiz);
-
-// save high score
-//saveScore.addEventListener("click", saveHighScore);
+saveScore.addEventListener("click", saveHighScore);
 
 init();

@@ -6,37 +6,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>World Cup Challenge</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Da+2&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/styles.css" />
-
 </head>
 
 <body>
-    <div>
-        <a href="./highscores.html" class="high-scores">Show High Scores</a>
-    </div>
+    <header>
+        <a href="./highscores.html" class="high-score">Show High Scores</a><span class="timer">Time: <span
+                id="timer-count">100</span></span>
+    </header>
 
-    <div class="timer">Time: <span id="timer-count">100</span></div>
     <h1>World Cup Challenge</h1>
-    <br>
 
     <div id="question" class="quest">
         <span id="question-title" class="title"></span><br>
         <div id="choices" class="answers"></div>
         <p id="description" class="description">
-            This trivia challenge will test your knowledge on the FIFA World
-            Cup. If you love soccer so much, you should know all the answers, Good Luck.
+            This trivia challenge will test your knowledge on the FIFA World Cup. If you love soccer so much, you should
+            know all the answers. Good Luck!.
         </p>
     </div>
 
-    <br><br>
-
     <button id="start" class="start-btn">Start Challenge</button>
 
-    <div id="form">
+    <div id="form" class="form">
         <form action="save-score" method="post">
-            <label for="initials">Initials: </label>
+            <label for="initials">Enter Initials: </label>
             <input type="text" id="initials" name="user-initials">
-            <button type="submit" class="saveInitials" id="save-score">Save score</button>
+            <button type="submit" class="saveInitials" id="save-score">Save Your Score</button>
         </form>
     </div>
 

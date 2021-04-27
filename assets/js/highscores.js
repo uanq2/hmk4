@@ -1,4 +1,4 @@
-let highScores = document.getElementById("highscore-display");
+let highScores = document.getElementById("high-scores");
 let highScoresArr = JSON.parse(localStorage.getItem("highScoresArr")) || [];
 
 function displayScores() {

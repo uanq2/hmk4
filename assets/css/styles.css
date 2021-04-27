@@ -1,20 +1,35 @@
 body {
-  background-color: lightblue;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  background-color: #C7C7C7;
+  font-family: 'Baloo Da 2', cursive;
+  font-size: 16px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 30px;
 }
 
 h1 {
   display: flex;
   justify-content: center;
+  font-weight: 600;
+}
+
+.high-score, .play-again {
+  text-decoration: none;
+  color: black;
+  background-color:#00A752;
+  border-radius: 5px;
+  padding: 8px;
 }
 
 .description {
-  margin: auto;
+  margin-top: -60px;
 }
 
 .quest {
-  width: 800px;
-  max-width: 80%;
+  width: 700px;
   background-color: white;
   margin: auto;
   border-radius: 5px;
@@ -22,22 +37,49 @@ h1 {
   box-shadow: 0 0 5px 2px;
 }
 
-.timer {
-  display: inline-flex;
-  justify-content: right;
+.title {
+  display: flex;
+  justify-content: center;
 }
 
 .answers {
   display: grid;
   gap: 10px;
-  margin: 20px 40px;
+  margin: 20px 180px;
+  color: #00A752;
+}
+
+.timer {
+  color: #00A752;
 }
 
 .start-btn {
   border-radius: 5px;
-  background-color: darkgray;
-  padding: 5px 10px;
-  color: rgb(31, 31, 31);
-  margin: auto;
+  background-color: #00A752;
   display: block;
+  font-family: 'Baloo Da 2', cursive;
+  font-size: medium;
+  margin: auto;
+  margin-top: 30px;
+  padding: 5px 10px;
 }
+
+form {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  white-space: break-spaces;
+}
+
+li {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+.saveInitials {
+  background-color: #00A752;
+  font-family: 'Baloo Da 2', cursive;
+  border-radius: 5px;
+}
+
