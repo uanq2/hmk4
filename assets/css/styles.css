@@ -75,6 +75,7 @@ li {
   list-style: none;
   display: flex;
   justify-content: center;
+  white-space: break-spaces;
 }
 
 .saveInitials {

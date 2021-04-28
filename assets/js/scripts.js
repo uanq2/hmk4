@@ -5,6 +5,7 @@ let choiceButton = document.getElementById("choices");
 let questionTitle = document.getElementById("question-title");
 let choicesDiv = document.getElementById("choices");
 let description = document.getElementById("description")
+let questionary = document.getElementById("question")
 let form = document.getElementById("form");
 let highScoresArr = JSON.parse(localStorage.getItem('highScoresArr')) || [];
 let questionIndex = 0;
@@ -53,20 +54,21 @@ function getQuestion() {
 
 function answerCheck() {
     if (this.value === questions[questionIndex].correctAnswer) {
-        alert('correct');
+        alert('YES');
     } else {
-        countdown -= 10;
-        alert('wrong!');
-        questionIndex++;
-        if (questionIndex < questions.length) {
-            getQuestion();
-        }
+        //countdown -= 10;
+        alert('NO!');
+    }
+    questionIndex++;
+    if (questionIndex < questions.length) {
+        getQuestion();
     }
 }
 
 // end game
 function endGame() {
     alert('Game is Over!');
+    questionary.setAttribute("style", "display: none");
     form.setAttribute("style", "display: block",);
 }
 
