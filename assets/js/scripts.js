@@ -1,4 +1,4 @@
-// define variables //////////////////////////////////
+//variables //////////////////////////////////
 let startBtn = document.getElementById("start");
 let saveScore = document.getElementById("save-score");
 let choiceButton = document.getElementById("choices");
@@ -9,9 +9,9 @@ let questionary = document.getElementById("question")
 let form = document.getElementById("form");
 let highScoresArr = JSON.parse(localStorage.getItem('highScoresArr')) || [];
 let questionIndex = 0;
-let countdown = 100;
+let time = 90;
 
-// functions //////////////////////////////////
+//functions //////////////////////////////////
 function init() {
     description.setAttribute("style", "display: block");
     form.setAttribute("style", "display: none");
@@ -30,9 +30,9 @@ function startQuiz() {
 
 function startTimer() {
     var interval = setInterval(function () {
-        countdown--;
-        document.getElementById("timer-count").textContent = countdown;
-        if (countdown <= 0 || questionIndex >= questions.length) {
+        time--;
+        document.getElementById("timer-count").textContent = time;
+        if (time <= 0 || questionIndex >= questions.length) {
             clearInterval(interval);
             endGame();
         }
@@ -54,10 +54,10 @@ function getQuestion() {
 
 function answerCheck() {
     if (this.value === questions[questionIndex].correctAnswer) {
-        alert('YES');
+        alert('Yes, Goal!');
     } else {
-        //countdown -= 10;
-        alert('NO!');
+        time -= 10;
+        alert('No, Goal Against!');
     }
     questionIndex++;
     if (questionIndex < questions.length) {
@@ -78,7 +78,7 @@ function saveHighScore(event) {
     let initialInput = document.getElementById('initials').value;
     let highScoreObj = {
         name: initialInput,
-        score: countdown,
+        score: time,
     };
     highScoresArr.push(highScoreObj);
     highScoresArr.sort((a, b) => b.highScoreObj - a.highScoreObj);
@@ -90,7 +90,6 @@ function highScoresLink() {
     window.location.href = "./highscores.html";
 }
 
-choiceButton.addEventListener("click", answerCheck);
 startBtn.addEventListener("click", startQuiz);
 saveScore.addEventListener("click", saveHighScore);
 

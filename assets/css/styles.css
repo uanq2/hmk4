@@ -17,11 +17,11 @@ h1 {
 }
 
 .high-score, .play-again {
-  text-decoration: none;
-  color: black;
   background-color:#00A752;
   border-radius: 5px;
+  color: black;
   padding: 8px;
+  text-decoration: none;
 }
 
 .description {
@@ -29,28 +29,46 @@ h1 {
 }
 
 .quest {
-  width: 700px;
   background-color: white;
-  margin: auto;
   border-radius: 5px;
-  padding: 10px;
   box-shadow: 0 0 5px 2px;
+  margin: auto;
+  padding: 10px;
+  width: 700px;
 }
 
 .title {
   display: flex;
+  font-size: 20px;
   justify-content: center;
+  margin: 20px 0px -20px;
 }
 
 .answers {
+  color: #00A752;
   display: grid;
   gap: 10px;
   margin: 20px 180px;
-  color: #00A752;
+}
+
+button {
+  background-color: #00A752;
+  border: none;
+  border-radius: 5px;
+  font-family: 'Baloo Da 2', cursive;
+  font-size: 18px;
+}
+
+.high-score:hover, .play-again:hover, button:hover {
+  background-color: #25e07f;
+  color: #4e4d4d;
 }
 
 .timer {
   color: #00A752;
+  border-radius: 5px;
+  border: groove #00A752;
+  padding: 8px;
 }
 
 .start-btn {
@@ -72,15 +90,20 @@ form {
 }
 
 li {
-  list-style: none;
+  color: #00A752;
   display: flex;
   justify-content: center;
-  white-space: break-spaces;
+  margin: auto;
+  word-spacing: 100px;
+  width: 60rem;
 }
 
 .saveInitials {
   background-color: #00A752;
   font-family: 'Baloo Da 2', cursive;
+}
+
+.input {
   border-radius: 5px;
 }
 

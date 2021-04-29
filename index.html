@@ -14,7 +14,7 @@
 <body>
     <header>
         <a href="./highscores.html" class="high-score">Show High Scores</a><span class="timer">Time: <span
-                id="timer-count">100</span></span>
+                id="timer-count">90</span></span>
     </header>
 
     <h1>World Cup Challenge</h1>
@@ -24,7 +24,7 @@
         <div id="choices" class="answers"></div>
         <p id="description" class="description">
             This trivia challenge will test your knowledge on the FIFA World Cup. If you love soccer so much, you should
-            know all the answers. Good Luck!.
+            know all the answers. Any wrong answer will reduce 10 seconds of your time final score. Good Luck!.
         </p>
     </div>
 
@@ -33,7 +33,7 @@
     <div id="form" class="form">
         <form action="save-score" method="post">
             <label for="initials">Enter Initials: </label>
-            <input type="text" id="initials" name="user-initials">
+            <input type="text" id="initials" class="input" name="user-initials">
             <button type="submit" class="saveInitials" id="save-score">Save Your Score</button>
         </form>
     </div>
