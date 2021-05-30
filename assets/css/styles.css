@@ -95,7 +95,6 @@ li {
   justify-content: center;
   margin: auto;
   word-spacing: 100px;
-  width: 60rem;
 }
 
 .saveInitials {
@@ -107,3 +106,8 @@ li {
   border-radius: 5px;
 }
 
+@media (max-width: 768px) {
+    .quest {
+      max-width: 80%;
+    }
+}
